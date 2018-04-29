@@ -28,6 +28,7 @@ R_API RParse *r_parse_new() {
 	p->relsub = false;
 	p->minval = 0x100;
 	p->localvar_only = false;
+	p->regsub = false;
 	for (i = 0; parse_static_plugins[i]; i++) {
 		r_parse_add (p, parse_static_plugins[i]);
 	}

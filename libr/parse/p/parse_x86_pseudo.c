@@ -484,8 +484,11 @@ static bool varsub (RParse *p, RAnalFunction *f, ut64 addr, int oplen, char *dat
 
 	r_list_foreach (regs, regiter, reg) {
 		RRegItem *r = r_reg_index_get (p->anal->reg, reg->delta);
+    printf("[DEBUG]> r->name: '%s'\treg->name: '%s'\tp->regsub: %i", r->name, reg->name, p->regsub);
 		if (r && r->name && strstr (tstr, r->name)){
-			tstr = r_str_replace (tstr, r->name, reg->name, 1);
+      if (p->regsub) {
+        tstr = r_str_replace (tstr, r->name, reg->name, 1);
+      }
 		}
 	}
 

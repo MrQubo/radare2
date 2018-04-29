@@ -5168,6 +5168,7 @@ static bool cmd_anal_refs(RCore *core, const char *input) {
 			} else if (input[1] == 'j') { // "axtj"
 				bool asm_varsub = r_config_get_i (core->config, "asm.varsub");
 				core->parser->relsub = r_config_get_i (core->config, "asm.relsub");
+				core->parser->regsub = r_config_get_i (core->config, "asm.regsub");
 				core->parser->localvar_only = r_config_get_i (core->config, "asm.varsub_only");
 				r_cons_printf ("[");
 				r_list_foreach (list, iter, ref) {
@@ -5229,6 +5230,7 @@ static bool cmd_anal_refs(RCore *core, const char *input) {
 				char *comment;
 				bool asm_varsub = r_config_get_i (core->config, "asm.varsub");
 				core->parser->relsub = r_config_get_i (core->config, "asm.relsub");
+				core->parser->regsub = r_config_get_i (core->config, "asm.regsub");
 				core->parser->localvar_only = r_config_get_i (core->config, "asm.varsub_only");
 				if (core->parser->relsub) {
 					core->parser->relsub_addr = addr;
